@@ -9,7 +9,7 @@ import {
     TouchableOpacity,
 } from 'react-native';
 
-import { Action } from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import { getToken } from './api-client';
 
 export default class LoginView extends Component {
@@ -27,7 +27,7 @@ export default class LoginView extends Component {
             global.token = data.token;
             Actions.home()
         })
-        .catch(error => { console.warn(error); });
+        .catch(error => { console.warn(`${error}`)});
     }
 
     render() {
@@ -46,7 +46,7 @@ export default class LoginView extends Component {
                 <TextInput
                     style={styles.textInput}
                     onChangeText={password => this.setState({password})}
-                    value={this.state.username}
+                    value={this.state.password}
                     secureTextEntry= {true}
                     placeholder={'Contraseña'}
                     placeholderTextColor={'#000035'}
@@ -54,10 +54,10 @@ export default class LoginView extends Component {
                     returnKeyType={'done'}
                     onSubmitEditing={this.ingresar}
                 />
-                <TouchableOpacity onPress={this.ingresar} style={styles.boton}>
-                <Text style={styles.textoBoton}>
-                    Log in
-                </Text>
+                <TouchableOpacity onPress={this.logIn} style={styles.boton}>
+                    <Text style={styles.textoBoton}>
+                        Log in
+                    </Text>
                 </TouchableOpacity>
             </View>
         );

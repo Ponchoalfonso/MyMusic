@@ -13,9 +13,7 @@ function getToken(email, password) {
         }),
     })
     .then(response => response.json())
-    .then(data => {
-        return data;
-    });
+    .then(data => data);
 }
 
 function getMusicData() {
