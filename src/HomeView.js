@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   View,
+  Text,
 } from 'react-native';
 
 import ArtistsList from './ArtistsList';
@@ -21,7 +22,7 @@ export default class HomeView extends Component<Props> {
 
     return (
       <View style={styles.container}>
-        { artists && <ArtistsList artists={artistst}/> }
+        { artists && <ArtistsList artists={artists}/> }
       </View>
     );
   }

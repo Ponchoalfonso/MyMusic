@@ -10,9 +10,11 @@ export default class ArtistBox extends Component<Props> {
 
   render() {
     const {image, name} = this.props.artist;
+
+    console.warn(this.props.artist);
     return (
       <View style={styles.artistBox}>
-        <Image styles={styles.image} source={{uri: image}}/>
+        <Image style={styles.image} source={{uri: image}}/>
         <View style={styles.info}>
           <Text style={styles.name}>{name}</Text>
         </View>
@@ -29,7 +31,7 @@ const styles = StyleSheet.create({
     shadowColor: 'black',
     shadowOpacity: .1,
     shadowOffset: { height: 1, width: -2 },
-    elevation: 2
+    elevation: 2,
   },
   image: { width: 150, height: 150 },
   info: {

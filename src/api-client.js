@@ -40,19 +40,4 @@ function getMusicData() {
     }));
 }
 
-async function getTokenV2(email, password) {
-    const request = await fetch(`${URL}login`, {
-        method: 'POST',
-        headers: {
-            Accept: 'applications/json',
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            email: email,
-            password: password,
-        }),
-    });
-    return json = await request.json(); 
-}
-
 export { getToken, getMusicData };

@@ -4,11 +4,11 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import { ArtistBox } from './ArtistBox';
+import ArtistBox from './ArtistBox';
 
 import { Actions } from 'react-native-router-flux';
 
-export default class HomeView extends Component<Props> {
+export default class ArtistsList extends Component<Props> {
   constructor(props) {
     super();
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
