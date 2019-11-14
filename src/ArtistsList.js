@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {
   ListView,
+  FlatList,
   TouchableOpacity,
 } from 'react-native';
 
@@ -17,38 +18,23 @@ export default class ArtistsList extends Component<Props> {
     };
   }
 
-  componentDidMount() {
-    this.updateDataSource(this.props.artists);
-  }
-
-  componentWillReceiveProps(newProps) {
-    if (newProps.artists !== this.props.artists) {
-      this.updateDataSource(newProps.artists);
-    }
-  }
-
-  updateDataSource = data => {
-    this.setState({
-      dataSource: this.state.dataSource.cloneWithRows(data),
-    });
-  }
-
   handlePress(artist) {
     Actions.artistDetail({ artist: artist });
   }
 
   render() {
+    const artists = this.props.artists;
+
     return(
-      <ListView
-      enableEmptySections={true}
-      dataSource={this.state.dataSource}
-      renderRow={artist => {
-        return (
-          <TouchableOpacity onPress={() => this.handlePress(artist)}>
-            <ArtistBox artist={artist} />
-          </TouchableOpacity>
-        );
-      }}
+      <FlatList
+        data={artists}
+        renderItem={ ({item}) => {
+          return (
+            <TouchableOpacity onPress={() => this.handlePress(item)}>
+              <ArtistBox artist={item} />
+            </TouchableOpacity>
+          );
+        }}
       />
     );
   }
