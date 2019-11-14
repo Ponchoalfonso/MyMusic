@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { 
-    Platform,
     StyleSheet,
     View,
     Text,
@@ -71,17 +70,12 @@ const styles = StyleSheet.create({
         height: null,
         backgroundColor:'white',
         alignItems: 'center',
+        justifyContent: 'center',
     },
     logo:{
         width: 200,
-        height: 150,
+        height: 80,
         flexDirection: 'row',
-        flexWrap: 'wrap',
-        marginTop: Platform.select({
-            ios: 90,
-            android: 50
-        }),
-        marginBottom: 25
     },
     textInput:{
         height: 40,
