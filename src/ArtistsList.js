@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  ListView,
   FlatList,
   TouchableOpacity,
 } from 'react-native';
@@ -12,7 +11,6 @@ import { Actions } from 'react-native-router-flux';
 export default class ArtistsList extends Component<Props> {
   constructor(props) {
     super();
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
       dataSource: ds,
     };
